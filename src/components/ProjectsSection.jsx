@@ -13,9 +13,16 @@ const projects = [
     description:
       "Une application web qui va vous permettre d’afficher les news récentes du journal Tech Crunch. Vous pourrez également sauvegarder vos articles préférés et les retrouver en vous connectant à votre compte.",
     image: morningNewsImg,
-    tags: ["JavaScript","Next.js", "React", "Redux", "CSS Modules", "API REST"],
+    tags: [
+      "JavaScript",
+      "Next.js",
+      "React",
+      "Redux",
+      "CSS Modules",
+      "API REST",
+    ],
     githubUrl: "https://github.com/KevinK693/morningnews-backend",
-    videoUrl: "/videos/morning-news demo.mov",
+    videoUrl: "https://www.youtube.com/embed/8zAvRoDHgXA",
   },
   {
     id: 2,
@@ -25,7 +32,8 @@ const projects = [
     image: "/public/projects/IMG_1116.png",
     tags: ["JavaScript", "React Native", "Expo", "Redux", "API REST"],
     githubUrl: "https://github.com/KevinK693/locapic-backend",
-    videoUrl: "/public/videos/ScreenRecording_07-29-2025 14-35-28_1.mov",
+    videoUrl: "https://www.youtube.com/embed/2iO3B0x_NT4",
+
   },
   {
     id: 3,
@@ -33,9 +41,10 @@ const projects = [
     description:
       "Un jeu de création narratif collaboratif. Le but du jeu est de créer une histoire où chaque joueur peut proposer la suite des scènes générées par l'IA. Chaque joueur va voter pour sa proposition préférée et l'IA prend le relais pour générer la scène suivante.",
     image: "/public/projects/IMG_1426.PNG",
-    tags: ["JavaScript", "React Native","Expo", "Node.js", "IA"],
-    githubUrl: "https://github.com/KevinK693/true-story-backend/tree/main/backend",
-    videoUrl: "/public/videos/Screen_Recording_20250602_112451_Expo Go.mp4",
+    tags: ["JavaScript", "React Native", "Expo", "Node.js", "IA"],
+    githubUrl:
+      "https://github.com/KevinK693/true-story-backend/tree/main/backend",
+    videoUrl: "https://www.youtube.com/embed/fWbUeYnWmrU",
   },
 ];
 
@@ -67,68 +76,69 @@ export const ProjectsSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {projects.map((project, key) => (
-    <div
-      key={key}
-      className="group text-foreground bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
-    >
-      {/* Image */}
-      <div className="h-48 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className={`w-full h-full ${
-            project.id === 2 || project.id === 3
-              ? "object-contain bg-black"
-              : "object-cover"
-          } transition-transform duration-500`}
-        />
-      </div>
-
-      {/* Contenu */}
-      <div className="p-6 flex flex-col flex-1">
-        <div>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-          <p className="text-muted-foreground text-sm">
-            {project.description}
-          </p>
-        </div>
-
-        {/* Boutons toujours en bas */}
-        <div className="flex items-center space-x-3 mt-auto pt-4">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            className="text-foreground/80 hover:text-primary transition-colors duration-300"
-          >
-            <Github size={20} />
-          </a>
-          {project.videoUrl && (
-            <button
-              onClick={() => openVideoModal(project.videoUrl)}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-              title="Voir la démo"
+          {projects.map((project, key) => (
+            <div
+              key={key}
+              className="group text-foreground bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
             >
-              <PlayCircle size={20} />
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+              {/* Image */}
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={`w-full h-full ${
+                    project.id === 2 || project.id === 3
+                      ? "object-contain bg-black"
+                      : "object-cover"
+                  } transition-transform duration-500`}
+                />
+              </div>
 
+              {/* Contenu */}
+              <div className="p-6 flex flex-col flex-1">
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 className="text-xl font-semibold mb-1">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* Boutons toujours en bas */}
+                <div className="flex items-center space-x-3 mt-auto pt-4">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <Github size={20} />
+                  </a>
+                  {project.videoUrl && (
+                    <button
+                      onClick={() => openVideoModal(project.videoUrl)}
+                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      title="Voir la démo"
+                    >
+                      <PlayCircle size={20} />
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
 
         <div className="text-center mt-12">
           <a
@@ -166,17 +176,17 @@ export const ProjectsSection = () => {
         }}
       >
         <div className="relative">
-          <video
+          <iframe
+            width="100%"
+            height="500"
             src={currentVideoUrl}
-            controls
-            autoPlay
-            style={{
-              width: "100%",
-              height: "auto",
-              maxHeight: "80vh",
-              borderRadius: "8px",
-            }}
+            title="Demo vidéo"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="rounded-lg"
           />
+
           <button
             onClick={closeVideoModal}
             className="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded px-2 py-1"
