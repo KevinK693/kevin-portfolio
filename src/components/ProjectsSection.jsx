@@ -2,6 +2,8 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { ArrowRight, ExternalLink, Github, PlayCircle } from "lucide-react";
 import morningNewsImg from "@/assets/morning-news.png";
+import locapicIMG from "@/assets/locapic.png";
+import trueStoryIMG from "@/assets/truestory.png";
 
 // Important pour react-modal
 Modal.setAppElement("#root"); // Si tu es dans un projet Next.js, mets "#__next"
@@ -29,7 +31,7 @@ const projects = [
     title: "Locapic",
     description:
       "Une application mobile permettant de géolocaliser un utilisateur en matérialisant ses déplacements sur une carte interactive et en offrant la possibilité d’y ajouter des points d'intérêt et de les retrouver simplement.",
-    image: "/public/projects/IMG_1116.png",
+    image: locapicIMG,
     tags: ["JavaScript", "React Native", "Expo", "Redux", "API REST"],
     githubUrl: "https://github.com/KevinK693/locapic-backend",
     videoUrl: "https://www.youtube.com/embed/2iO3B0x_NT4",
@@ -40,7 +42,7 @@ const projects = [
     title: "True Story",
     description:
       "Un jeu de création narratif collaboratif. Le but du jeu est de créer une histoire où chaque joueur peut proposer la suite des scènes générées par l'IA. Chaque joueur va voter pour sa proposition préférée et l'IA prend le relais pour générer la scène suivante.",
-    image: "/public/projects/IMG_1426.PNG",
+    image: trueStoryIMG,
     tags: ["JavaScript", "React Native", "Expo", "Node.js", "IA"],
     githubUrl:
       "https://github.com/KevinK693/true-story-backend/tree/main/backend",
