@@ -113,7 +113,7 @@ export const ContactSection = () => {
             </div>
           </div>
           <div className="bg-card p-8 rounded-lg shadow-xs">
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
+            <h3 className="text-2xl font-semibold mb-6">Envoyer un message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>

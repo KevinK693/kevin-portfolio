@@ -2,38 +2,31 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 90, category: "frontend" },
-  { name: "TypeScript", level: 15, category: "frontend" },
-  { name: "Tailwind CSS", level: 15, category: "frontend" },
-  { name: "Next.js", level: 90, category: "frontend" },
+  { name: "HTML/CSS", category: "frontend" },
+  { name: "JavaScript", category: "frontend" },
+  { name: "React", category: "frontend" },
+  { name: "TypeScript", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Next.js", category: "frontend" },
 
-  { name: "Node.js", level: 90, category: "backend" },
-  { name: "Express", level: 85, category: "backend" },
-  { name: "MongoDB", level: 80, category: "backend" },
-  { name: "NoSQL", level: 100, category: "backend" },
+  { name: "Node.js", category: "backend" },
+  { name: "Express", category: "backend" },
+  { name: "MongoDB", category: "backend" },
+  { name: "NoSQL", category: "backend" },
 
-  { name: "Git/GitHub", level: 90, category: "Outils" },
-  { name: "Miro", level: 50, category: "Outils" },
-  { name: "Figma", level: 85, category: "Outils" },
-  { name: "VS Code", level: 95, category: "Outils" },
+  { name: "Git/GitHub", category: "Outils" },
+  { name: "Miro", category: "Outils" },
+  { name: "Figma", category: "Outils" },
+  { name: "VS Code", category: "Outils" },
 ];
 
 const categories = ["all", "frontend", "backend", "Outils"];
-
-const getSkillLabel = (level) => {
-  if (level >= 85) return "Maîtrisé";
-  if (level >= 70) return "Avancé";
-  if (level >= 40) return "Intermédiaire";
-  return "Débutant";
-};
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
+    skill => activeCategory === "all" || skill.category === activeCategory
   );
 
   return (
@@ -43,6 +36,7 @@ export const SkillsSection = () => {
           Mes <span className="text-primary">Compétences</span>
         </h2>
 
+        {/* Boutons catégories */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category, key) => (
             <button
@@ -59,25 +53,13 @@ export const SkillsSection = () => {
             </button>
           ))}
         </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
               className="bg-card text-foreground p-6 rounded-lg shadow-xs card-hover"
             >
-              <div className="text-left mb-2">
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden mb-2">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-              <div className="text-right text-sm text-muted-foreground italic">
-                {getSkillLabel(skill.level)}
-              </div>
+              <h3 className="font-semibold text-lg">{skill.name}</h3>
             </div>
           ))}
         </div>
